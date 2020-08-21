@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Bengine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Bengine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add directory="../deps/include" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lmingw32 -lSDL2main -lSDL2" />
+					<Add option="-lglew32 -lopengl32" />
+					<Add directory="../deps/lib/GLEW" />
+					<Add directory="../deps/lib/SDL2" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Bengine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="include" />
+			<Add directory="deps/include" />
+		</Compiler>
+		<Unit filename="include/Bengine.h" />
+		<Unit filename="include/Camera2D.h" />
+		<Unit filename="include/Errors.h" />
+		<Unit filename="include/GLSLProgram.h" />
+		<Unit filename="include/GLTexture.h" />
+		<Unit filename="include/IOManager.h" />
+		<Unit filename="include/ImageLoader.h" />
+		<Unit filename="include/InputManager.h" />
+		<Unit filename="include/ResourceManager.h" />
+		<Unit filename="include/Sprite.h" />
+		<Unit filename="include/SpriteBatch.h" />
+		<Unit filename="include/TextureCache.h" />
+		<Unit filename="include/Timing.h" />
+		<Unit filename="include/Vertex.h" />
+		<Unit filename="include/Window.h" />
+		<Unit filename="include/picoPNG.h" />
+		<Unit filename="src/Bengine.cpp" />
+		<Unit filename="src/Camera2D.cpp" />
+		<Unit filename="src/Errors.cpp" />
+		<Unit filename="src/GLSLProgram.cpp" />
+		<Unit filename="src/IOManager.cpp" />
+		<Unit filename="src/ImageLoader.cpp" />
+		<Unit filename="src/InputManager.cpp" />
+		<Unit filename="src/ResourceManager.cpp" />
+		<Unit filename="src/Sprite.cpp" />
+		<Unit filename="src/SpriteBatch.cpp" />
+		<Unit filename="src/TextureCache.cpp" />
+		<Unit filename="src/Timing.cpp" />
+		<Unit filename="src/Window.cpp" />
+		<Unit filename="src/picoPNG.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

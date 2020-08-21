@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="../Bengine/Bengine.cbp" />
+		<Project filename="Zombie_Game.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

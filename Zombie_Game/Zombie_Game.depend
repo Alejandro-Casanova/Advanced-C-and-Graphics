@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1597620632 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\main.cpp
+	<iostream>
+	<conio.h>
+	"MainGame.h"
+
+1597922745 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\bullet.cpp
+	"Bullet.h"
+	<Bengine/include/ResourceManager.h>
+	<Bengine/include/GLTexture.h>
+
+1597923135 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\maingame.cpp
+	"MainGame.h"
+	<Bengine/include/Errors.h>
+	<Bengine/include/ResourceManager.h>
+	<iostream>
+	<string>
+

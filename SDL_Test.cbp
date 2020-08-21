@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SDL_Test" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/SDL_Test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="../SDL_Test" />
+					<Add directory="include" />
+					<Add directory="deps/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lBengine" />
+					<Add option="-lmingw32" />
+					<Add option="-lSDL2main" />
+					<Add option="-lSDL2" />
+					<Add option="-lopengl32" />
+					<Add option="-lglew32" />
+					<Add directory="deps/lib/GLEW" />
+					<Add directory="deps/lib/SDL2" />
+					<Add directory="Bengine/bin/Debug" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/SDL_Test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="Bengine/deps/include" />
+		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2" />
+			<Add option="-lglew32 -lopengl32" />
+			<Add library="Bengine/bin/Debug/libBengine.a" />
+			<Add directory="deps/lib/GLEW" />
+			<Add directory="deps/lib/SDL2" />
+			<Add directory="Bengine/bin/Debug" />
+		</Linker>
+		<Unit filename="include/Bullet.h" />
+		<Unit filename="include/MainGame.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Bullet.cpp" />
+		<Unit filename="src/MainGame.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
