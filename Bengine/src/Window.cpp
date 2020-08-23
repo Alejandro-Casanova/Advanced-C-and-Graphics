@@ -3,7 +3,7 @@
 
 namespace Bengine{
 
-Window::Window()
+Window::Window() : _screenWidth(0), _screenHeight(0)
 {
     //ctor
 }

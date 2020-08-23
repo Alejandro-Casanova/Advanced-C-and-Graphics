@@ -34,12 +34,17 @@
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
 				<Compiler>
-					<Add option="-Wall" />
 					<Add option="-O2" />
+					<Add option="-Wall" />
 					<Add directory="include" />
+					<Add directory="../deps/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lmingw32 -lSDL2main -lSDL2" />
+					<Add option="-lglew32 -lopengl32" />
+					<Add directory="../deps/lib/GLEW" />
+					<Add directory="../deps/lib/SDL2" />
 				</Linker>
 			</Target>
 		</Build>

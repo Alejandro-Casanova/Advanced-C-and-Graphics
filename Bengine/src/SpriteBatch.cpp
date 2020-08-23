@@ -4,14 +4,16 @@
 
 namespace Bengine{
 
-SpriteBatch::SpriteBatch() : _vbo(0), _vao(0)
+SpriteBatch::SpriteBatch() : _vbo(0), _vao(0), _sortType(GlyphSortType::TEXTURE)
 {
     //ctor
 }
 
 SpriteBatch::~SpriteBatch()
 {
-    //dtor
+    for(auto it = _glyphs.begin(); it != _glyphs.end(); it++){
+        delete (*it);
+    }
 }
 
 void SpriteBatch::init(){
@@ -21,9 +23,13 @@ void SpriteBatch::init(){
 void SpriteBatch::begin(GlyphSortType sortType /*= GlyphSortType::TEXTURE*/){
     _sortType = sortType;
     _renderBatches.clear();
-    for(int i = 0; i < _glyphs.size(); i++){
-        delete _glyphs[i];
+
+    for(auto it = _glyphs.begin(); it != _glyphs.end(); it++){
+        delete (*it);
     }
+//    for(int i = 0; i < _glyphs.size(); i++){
+//        delete _glyphs[i];
+//    }
     _glyphs.clear();
 }
 
@@ -33,7 +39,7 @@ void SpriteBatch::end(){
 }
 
 //Destination Rectangle: 2 pocition coordinates and 2 dimension coordinates
-void SpriteBatch::draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color){
+void SpriteBatch::draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const ColorRGBA8& color){
     Glyph* newGlyph = new Glyph;
     newGlyph->texture = texture;
     newGlyph->depth = depth;
@@ -65,7 +71,6 @@ void SpriteBatch::renderBatch(){
         glBindTexture(GL_TEXTURE_2D, _renderBatches[i].texture);
 
         glDrawArrays(GL_TRIANGLES, _renderBatches[i].offset, _renderBatches[i].numVertices);
-
     }
 
     glBindVertexArray(0);
@@ -158,7 +163,8 @@ void SpriteBatch::sortGlyphs(){
     case GlyphSortType::TEXTURE:
         std::stable_sort(_glyphs.begin(), _glyphs.end(), compareTexture);
         break;
-
+    default:
+        break;
     }
 
 }

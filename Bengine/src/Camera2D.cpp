@@ -11,7 +11,6 @@ Camera2D::Camera2D() :
     _cameraMatrix(1.0f),
     _orthoMatrix(1.0f)
 {
-
 }
 
 Camera2D::~Camera2D()

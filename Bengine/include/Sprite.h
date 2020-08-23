@@ -8,23 +8,23 @@
 
 namespace Bengine{
 
-    class Sprite
-    {
-        public:
-            Sprite();
-            virtual ~Sprite();
+class Sprite
+{
+    public:
+        Sprite();
+        virtual ~Sprite();
 
-            void draw();
-            void init(float x, float y, float width, float height, std::string texturePath);
+        void draw();
+        void init(float x, float y, float width, float height, std::string texturePath);
 
-        private:
-            float _x;
-            float _y;
-            float _width;
-            float _height;
-            GLuint _vboID;
-            GLTexture _texture;
-    };
+    private:
+        float _x;
+        float _y;
+        float _width;
+        float _height;
+        GLuint _vboID;
+        GLTexture _texture;
+};
 
 }
 

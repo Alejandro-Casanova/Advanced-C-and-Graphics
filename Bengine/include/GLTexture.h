@@ -5,6 +5,7 @@
 
 namespace Bengine{
     struct GLTexture{
+        GLTexture() : id(0), height(0), width(0){}
         GLuint id;
         int height;
         int width;

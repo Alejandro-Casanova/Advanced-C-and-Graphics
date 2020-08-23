@@ -3,24 +3,40 @@
 
 #include <glm/glm.hpp>
 #include <Bengine/include/SpriteBatch.h>
+#include <vector>
+#include <string>
 
+class Human;
+class Zombie;
+class Agent;
+
+const float BULLET_RADIUS = 5.0f;
 
 class Bullet
 {
     public:
-        Bullet(glm::vec2 pos, glm::vec2 dir, float speed, int lifeTime);
+        Bullet(glm::vec2 pos, glm::vec2 dir, float speed, /*int lifeTime, */int damage);
         virtual ~Bullet();
 
-        void draw(Bengine::SpriteBatch& spriteBatch);
-        bool update(); //Returns true when lifetime is over
+        bool update(const std::vector<std::string>& levelData); //Returns true when lifetime is over
+        void draw(Bengine::SpriteBatch& spriteBatch) const;
+        bool collideWithWorld(const std::vector<std::string>& levelData) const;
+        bool collideWithAgent(const Agent* agent) const;
+
+        //Getters
+        int getDamage() const { return _damage; }
+
 
     protected:
 
     private:
-        int _lifeTime;
+
+
+        //int _lifeTime;
         float _speed;
         glm::vec2 _direction;
         glm::vec2 _position;
+        int _damage;
 };
 
 #endif // BULLET_H

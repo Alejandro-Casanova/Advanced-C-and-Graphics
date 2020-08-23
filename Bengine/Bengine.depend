@@ -372,7 +372,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1597619071 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\glslprogram.cpp
+1598206880 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\glslprogram.cpp
 	"GLSLProgram.h"
 	"Errors.h"
 	<fstream>
@@ -402,7 +402,7 @@
 	<string>
 	"GLTexture.h"
 
-1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\gltexture.h
+1598207013 c:\users\aleca\desktop\c++\sdl_test\bengine\include\gltexture.h
 	<GLEW/glew.h>
 
 1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\picopng.h
@@ -419,26 +419,26 @@
 	"GLTexture.h"
 	<string>
 
-1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\texturecache.h
+1598207740 c:\users\aleca\desktop\c++\sdl_test\bengine\include\texturecache.h
 	<map>
 	<string>
 	"GLTexture.h"
 
-1597686630 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\sprite.cpp
+1598207504 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\sprite.cpp
 	"Sprite.h"
 	"Vertex.h"
 	"ResourceManager.h"
 	<cstddef>
 
-1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\sprite.h
+1598207307 c:\users\aleca\desktop\c++\sdl_test\bengine\include\sprite.h
 	"GLTexture.h"
 	<GLEW/glew.h>
 	<string>
 
-1597618773 c:\users\aleca\desktop\c++\sdl_test\bengine\include\vertex.h
+1598216322 c:\users\aleca\desktop\c++\sdl_test\bengine\include\vertex.h
 	<GLEW/glew.h>
 
-1597619071 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\texturecache.cpp
+1598207740 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\texturecache.cpp
 	"TextureCache.h"
 	"ImageLoader.h"
 	<iostream>
@@ -806,7 +806,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1597705220 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\window.cpp
+1598207606 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\window.cpp
 	"Window.h"
 	"Errors.h"
 
@@ -815,11 +815,11 @@
 	<GLEW/glew.h>
 	<string>
 
-1597619071 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\bengine.cpp
+1598212841 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\bengine.cpp
 	<SDL2/SDL.h>
 	<GLEW/glew.h>
 
-1597923055 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\camera2d.cpp
+1598212560 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\camera2d.cpp
 	"Camera2D.h"
 
 1597854307 c:\users\aleca\desktop\c++\sdl_test\bengine\include\camera2d.h
@@ -1535,11 +1535,11 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1597691232 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritebatch.cpp
+1598216322 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	<algorithm>
 
-1597686630 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritebatch.h
+1598216322 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritebatch.h
 	<vector>
 	<GLEW/glew.h>
 	<glm/glm.hpp>
@@ -1552,7 +1552,7 @@
 	<unordered_map>
 	<glm/glm.hpp>
 
-1597704472 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\timing.cpp
+1598207710 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\timing.cpp
 	"Timing.h"
 	<SDL2/SDL.h>
 

@@ -4,7 +4,8 @@
 
 namespace Bengine{
 
-FpsLimiter::FpsLimiter(){
+FpsLimiter::FpsLimiter() : _fps(0.0f), _maxFps(0.0f), _frameTime(0.0f), _startTicks(0)
+{
 }
 
 void FpsLimiter::init(float maxFPS){

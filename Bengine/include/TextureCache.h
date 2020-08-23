@@ -8,17 +8,17 @@
 
 namespace Bengine{
 
-    class TextureCache
-    {
-        public:
-            TextureCache();
-            virtual ~TextureCache();
+class TextureCache
+{
+    public:
+        TextureCache();
+        virtual ~TextureCache();
 
-            GLTexture getTexture(std::string texturePath);
+        GLTexture getTexture(std::string texturePath);
 
-        private:
-            std::map<std::string, GLTexture> _textureMap;
-    };
+    private:
+        std::map<std::string, GLTexture> _textureMap;
+};
 
 }
 

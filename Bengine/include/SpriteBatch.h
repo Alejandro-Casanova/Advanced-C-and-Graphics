@@ -48,7 +48,7 @@ public:
     void begin(GlyphSortType sortType = GlyphSortType::TEXTURE);
     void end();
 
-    void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color);//Destination Rectangle: 2 pocition coordinates and 2 dimension coordinates
+    void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const ColorRGBA8& color);//Destination Rectangle: 2 pocition coordinates and 2 dimension coordinates
 
     void renderBatch();
 
