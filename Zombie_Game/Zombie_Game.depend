@@ -4,7 +4,7 @@
 	<conio.h>
 	"MainGame.h"
 
-1598216322 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\bullet.cpp
+1598269313 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\bullet.cpp
 	"Bullet.h"
 	"Human.h"
 	"Zombie.h"
@@ -12,19 +12,22 @@
 	<Bengine/include/ResourceManager.h>
 	<Bengine/include/GLTexture.h>
 
-1598218135 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\maingame.cpp
+1598549611 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\maingame.cpp
 	"MainGame.h"
 	"Zombie.h"
 	"Gun.h"
-	<Bengine/include/Errors.h>
+	<Bengine/include/BengineErrors.h>
 	<Bengine/include/Bengine.h>
 	<Bengine/include/Timing.h>
+	<Bengine/include/ResourceManager.h>
+	<glm/gtx/rotate_vector.hpp>
 	<iostream>
 	<string>
 	<random>
 	<assert.h>
+	<sstream>
 
-1598218193 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\maingame.h
+1598484476 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\maingame.h
 	<SDL2/SDL.h>
 	<GLEW/glew.h>
 	<vector>
@@ -38,6 +41,10 @@
 	<Bengine/include/Camera2D.h>
 	<Bengine/include/SpriteBatch.h>
 	<Bengine/include/InputManager.h>
+	<Bengine/include/SpriteFont.h>
+	<Bengine/include/AudioEngine.h>
+	<Bengine/include/ParticleBatch2D.h>
+	<Bengine/include/ParticleEngine2D.h>
 
 1583894369 c:\users\aleca\desktop\c++\sdl_test\deps\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -402,7 +409,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1598201309 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\bullet.h
+1598483997 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\bullet.h
 	<glm/glm.hpp>
 	<Bengine/include/SpriteBatch.h>
 	<vector>
@@ -1063,7 +1070,7 @@
 
 1525695782 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\simd\integer.h
 
-1598216322 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritebatch.h
+1598543303 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritebatch.h
 	<vector>
 	<GLEW/glew.h>
 	<glm/glm.hpp>
@@ -1091,7 +1098,7 @@
 
 1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\bengine.h
 
-1597854307 c:\users\aleca\desktop\c++\sdl_test\bengine\include\camera2d.h
+1598282807 c:\users\aleca\desktop\c++\sdl_test\bengine\include\camera2d.h
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
@@ -1165,50 +1172,56 @@
 	<string>
 	"GLTexture.h"
 
-1598212439 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\agent.cpp
+1598547606 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\agent.cpp
 	"Agent.h"
 	"Level.h"
 	<math.h>
 	<algorithm>
 	<Bengine/include/ResourceManager.h>
 
-1598216322 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\agent.h
+1598551405 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\agent.h
 	<string>
 	<glm/glm.hpp>
 	<Bengine/include/GLTexture.h>
 	<Bengine/include/SpriteBatch.h>
 
-1598216322 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\human.cpp
+1598560757 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\human.cpp
 	"Human.h"
 	<random>
 	<glm/gtx/rotate_vector.hpp>
+	<glm/gtx/vector_angle.hpp>
+	<Bengine/include/ResourceManager.h>
 
-1598190279 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\human.h
+1598560925 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\human.h
 	"Agent.h"
 	"Zombie.h"
 
-1598218170 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\player.cpp
+1598550384 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\player.cpp
 	"Player.h"
 	"Gun.h"
+	<Bengine/include/ResourceManager.h>
 	<SDL2/SDL.h>
 
-1598190279 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\player.h
+1598541949 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\player.h
 	"Human.h"
 	"Bullet.h"
 	<Bengine/include/InputManager.h>
 	<Bengine/include/Camera2D.h>
 	<vector>
 
-1598216322 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\zombie.cpp
+1598551405 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\zombie.cpp
 	"Zombie.h"
 	"Human.h"
+	<glm/gtx/rotate_vector.hpp>
+	<glm/gtx/vector_angle.hpp>
+	<Bengine/include/ResourceManager.h>
 
-1598130526 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\zombie.h
+1598551405 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\zombie.h
 	"Agent.h"
 
-1598216322 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\level.cpp
+1598544478 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\level.cpp
 	"Level.h"
-	<Bengine/include/Errors.h>
+	<Bengine/include/BengineErrors.h>
 	<Bengine/include/ResourceManager.h>
 	<fstream>
 	<iostream>
@@ -1259,14 +1272,210 @@
 
 1533818822 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\rotate_vector.inl
 
-1598206709 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\gun.cpp
+1598389042 source:c:\users\aleca\desktop\c++\sdl_test\zombie_game\src\gun.cpp
 	"Gun.h"
 	<random>
 	<glm/gtx/rotate_vector.hpp>
 
-1598189398 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\gun.h
+1598389027 c:\users\aleca\desktop\c++\sdl_test\zombie_game\include\gun.h
 	<string>
 	<vector>
 	<glm/glm.hpp>
+	<Bengine/include/AudioEngine.h>
 	"Bullet.h"
+
+1598285079 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritefont.h
+	<SDL2/SDL_ttf.h>
+	<glm/glm.hpp>
+	<map>
+	<vector>
+	"Vertex.h"
+
+1547325890 c:\users\aleca\desktop\c++\sdl_test\deps\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1598392088 c:\users\aleca\desktop\c++\sdl_test\bengine\include\audioengine.h
+	<SDL2/SDL_mixer.h>
+	<string>
+	<map>
+
+1541001618 c:\users\aleca\desktop\c++\sdl_test\deps\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\bengineerrors.h
+	<string>
+
+1598466698 c:\users\aleca\desktop\c++\sdl_test\bengine\include\particleengine2d.h
+	<vector>
+
+1598488187 c:\users\aleca\desktop\c++\sdl_test\bengine\include\particlebatch2d.h
+	<glm/glm.hpp>
+	"Vertex.h"
+	"SpriteBatch.h"
+	"GLTexture.h"
+	<functional>
+
+1554373468 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\vector_angle.hpp
+	"../glm.hpp"
+	"../gtc/epsilon.hpp"
+	"../gtx/quaternion.hpp"
+	"../gtx/rotate_vector.hpp"
+	"vector_angle.inl"
+
+1574091105 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\quaternion.hpp
+	"../glm.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/quaternion.hpp"
+	"../ext/quaternion_exponential.hpp"
+	"../gtx/norm.hpp"
+	"quaternion.inl"
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtc\quaternion.hpp
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_common.hpp"
+	"../ext/quaternion_float.hpp"
+	"../ext/quaternion_float_precision.hpp"
+	"../ext/quaternion_double.hpp"
+	"../ext/quaternion_double_precision.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../ext/quaternion_trigonometric.hpp"
+	"../ext/quaternion_transform.hpp"
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"quaternion.inl"
+
+1585558029 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_common.hpp
+	"../ext/scalar_constants.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	<limits>
+	"quaternion_common.inl"
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_geometric.hpp
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"../ext/vector_relational.hpp"
+	"quaternion_geometric.inl"
+
+1535531570 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_geometric.inl
+
+1585558029 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_common.inl
+	"quaternion_common_simd.inl"
+
+1535531570 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_common_simd.inl
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_float.hpp
+	"../detail/type_quat.hpp"
+
+1585558029 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\detail\type_quat.hpp
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"type_quat.inl"
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_relational.hpp
+	"../vector_relational.hpp"
+	"quaternion_relational.inl"
+
+1535531570 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_relational.inl
+
+1585558029 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\detail\type_quat.inl
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"../ext/quaternion_geometric.hpp"
+	<limits>
+	"type_quat_simd.inl"
+
+1533818822 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\detail\type_quat_simd.inl
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_float_precision.hpp
+	"../detail/type_quat.hpp"
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_double.hpp
+	"../detail/type_quat.hpp"
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_double_precision.hpp
+	"../detail/type_quat.hpp"
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_trigonometric.hpp
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"scalar_constants.hpp"
+	"vector_relational.hpp"
+	<limits>
+	"quaternion_trigonometric.inl"
+
+1574091105 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_trigonometric.inl
+	"scalar_constants.hpp"
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_transform.hpp
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"quaternion_transform.inl"
+
+1535531570 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_transform.inl
+
+1586709095 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"epsilon.hpp"
+	<limits>
+	"quaternion_simd.inl"
+
+1535531570 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtc\quaternion_simd.inl
+
+1537176751 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_exponential.hpp
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../ext/scalar_constants.hpp"
+	"quaternion_exponential.inl"
+
+1574091105 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\ext\quaternion_exponential.inl
+	"scalar_constants.hpp"
+
+1574091105 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\norm.hpp
+	"../geometric.hpp"
+	"../gtx/quaternion.hpp"
+	"../gtx/component_wise.hpp"
+	"norm.inl"
+
+1554373468 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\component_wise.hpp
+	"../detail/setup.hpp"
+	"../detail/qualifier.hpp"
+	"component_wise.inl"
+
+1533818822 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\component_wise.inl
+	<limits>
+
+1574091105 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\norm.inl
+	"../detail/qualifier.hpp"
+
+1574091105 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\quaternion.inl
+	<limits>
+	"../gtc/constants.hpp"
+
+1533818822 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\gtx\vector_angle.inl
 

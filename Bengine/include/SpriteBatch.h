@@ -15,7 +15,12 @@ enum class GlyphSortType{
     TEXTURE
 };
 
-struct Glyph{
+class Glyph{
+public:
+    Glyph(){}
+    Glyph(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint Texture, float Depth, const ColorRGBA8& Color);
+    Glyph(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint Texture, float Depth, const ColorRGBA8& Color, float angle);
+
 
     GLuint texture;
     float depth;
@@ -24,6 +29,8 @@ struct Glyph{
     Vertex bottomLeft;
     Vertex topRight;
     Vertex bottomRight;
+private:
+    glm::vec2 rotatePoint(glm::vec2 point, float angle);
 
 };
 
@@ -49,6 +56,8 @@ public:
     void end();
 
     void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const ColorRGBA8& color);//Destination Rectangle: 2 pocition coordinates and 2 dimension coordinates
+    void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const ColorRGBA8& color, float angle);//Angle in radians
+    void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const ColorRGBA8& color, const glm::vec2& directionVect);
 
     void renderBatch();
 
@@ -67,7 +76,8 @@ private:
 
     GlyphSortType _sortType;
 
-    std::vector<Glyph*> _glyphs;
+    std::vector<Glyph*> _glyphPointers;
+    std::vector<Glyph> _glyphs;
     std::vector<RenderBatch> _renderBatches;
 };
 

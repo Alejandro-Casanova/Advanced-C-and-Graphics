@@ -16,6 +16,10 @@
 #include <Bengine/include/Camera2D.h>
 #include <Bengine/include/SpriteBatch.h>
 #include <Bengine/include/InputManager.h>
+#include <Bengine/include/SpriteFont.h>
+#include <Bengine/include/AudioEngine.h>
+#include <Bengine/include/ParticleBatch2D.h>
+#include <Bengine/include/ParticleEngine2D.h>
 
 class Zombie;
 
@@ -23,7 +27,7 @@ enum class GameState{PLAY, EXIT};
 
 const float HUMAN_SPEED = 1.00f;
 const float ZOMBIE_SPEED = 1.30f;
-const float PLAYER_SPEED = 10.0f;
+const float PLAYER_SPEED = 5.0f;
 const float BULLET_SPEED = 20.0f;
 
 const float CAMERA_SCALE = 1.0f;
@@ -42,41 +46,53 @@ class MainGame
         void initLevel();
         void initShaders();
         void gameLoop();
-        void updateAgents();
-        void updateBullets();///< Also manages zombie and human deaths
+        void updateAgents(float deltaTime);
+        void updateBullets(float deltaTime);///< Also manages zombie and human deaths
         void processInput();
         void checkVictory();
 
         //Renders Game
         void drawGame();
+        void drawHUD();
+        ///Adds blood effect
+        void drawBlood(const glm::vec2& position, const glm::vec2& direction, int numParticles);
 
-        int _screenWidth;
-        int _screenHeight;
-        float _maxFps;
-        float _fps;
-        int _currentLevel;
+        int m_screenWidth = 1024;
+        int m_screenHeight = 600;
+        float m_maxFps = 60.0f;
+        float m_fps = 0.0f;
+        int m_currentLevel = 0;
 
-        Bengine::Window _window;
+        Bengine::Window m_window;
 
-        Bengine::GLSLProgram _textureProgram; ///< Shader Program
+        Bengine::GLSLProgram m_textureProgram; ///< Shader Program
 
-        Bengine::InputManager _inputManager;
+        Bengine::InputManager m_inputManager;
 
-        Bengine::Camera2D _camera;
+        Bengine::Camera2D m_camera;
+        Bengine::Camera2D m_HUDcamera;
 
-        Bengine::SpriteBatch _agentSpriteBatch;
+        Bengine::SpriteBatch m_agentSpriteBatch;
+        Bengine::SpriteBatch m_hudSpriteBatch;
 
-        std::vector<Level*> _levels;
+        Bengine::ParticleEngine2D m_particleEngine;
+        Bengine::ParticleBatch2D* m_bloodParticleBatch;
 
-        Player* _player;
-        std::vector<Human*> _humans;
-        std::vector<Zombie*> _zombies;
-        std::vector<Bullet> _bullets;
+        Bengine::SpriteFont* m_spriteFont;
 
-        GameState _gameState;
+        Bengine::AudioEngine m_audioEngine;
 
-        int _numHumansKilled;
-        int _numZombiesKilled;
+        std::vector<Level*> m_levels;
+
+        Player* m_player = nullptr;
+        std::vector<Human*> m_humans;
+        std::vector<Zombie*> m_zombies;
+        std::vector<Bullet> m_bullets;
+
+        GameState m_gameState = GameState::PLAY;
+
+        int m_numHumansKilled = 0;
+        int m_numZombiesKilled = 0;
 
 };
 

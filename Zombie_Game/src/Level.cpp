@@ -1,6 +1,6 @@
 #include "Level.h"
 
-#include <Bengine/include/Errors.h>
+#include <Bengine/include/BengineErrors.h>
 #include <Bengine/include/ResourceManager.h>
 #include <fstream>
 #include <iostream>

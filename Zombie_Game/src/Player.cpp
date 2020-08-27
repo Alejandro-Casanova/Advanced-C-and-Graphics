@@ -1,20 +1,21 @@
 #include "Player.h"
 
 #include "Gun.h"
+#include <Bengine/include/ResourceManager.h>
 
 #include <SDL2/SDL.h>
 
 Player::Player() :
-    _inputManager(nullptr),
-    _currentGun(-1),
-    _camera(nullptr),
-    _bullets(nullptr){
+    m_inputManager(nullptr),
+    m_currentGun(-1),
+    m_camera(nullptr),
+    m_bullets(nullptr){
 
 }
 
 Player::~Player()
 {
-    for(auto it = _guns.begin(); it != _guns.end(); it++){
+    for(auto it = m_guns.begin(); it != m_guns.end(); it++){
         delete (*it);
     }
 }
@@ -23,68 +24,86 @@ void Player::init(float speed, glm::vec2 pos, Bengine::InputManager* inputManage
                                             Bengine::Camera2D* camera,
                                             std::vector<Bullet>* bullets){
 
-    _speed = speed;
-    _position = pos;
-    _color = Bengine::ColorRGBA8(0, 0, 185, 255);
-    _inputManager = inputManager;
-    _camera = camera;
-    _bullets = bullets;
-    _health = 150.0f;
+    m_speed = speed;
+    m_position = pos;
+    m_color = Bengine::ColorRGBA8(255, 255, 255, 255);
+    m_inputManager = inputManager;
+    m_camera = camera;
+    m_bullets = bullets;
+    m_health = 150.0f;
+    m_textureID = Bengine::ResourceManager::getTexture("textures/player.png").id;
 }
 
 void Player::addGun(Gun* gun){
-    _guns.push_back(gun);
+    m_guns.push_back(gun);
 
     //If no guns in inventory, equip gun
-    if(_currentGun == -1){
-        _currentGun = 0;
+    if(m_currentGun == -1){
+        m_currentGun = 0;
     }
 
 }
 
 void Player::update(const std::vector<std::string>& levelData,
                             std::vector<Human*>& humans,
-                            std::vector<Zombie*>& zombies){
+                            std::vector<Zombie*>& zombies,
+                            float deltaTime){
 
-    if(_inputManager->isKeyDown(SDLK_w)){
-        _position.y += _speed;
+    if(m_inputManager->isKeyDown(SDLK_w)){
+        m_position.y += m_speed * deltaTime;
     }
-    if(_inputManager->isKeyDown(SDLK_s)){
-        _position.y -= _speed;
+    if(m_inputManager->isKeyDown(SDLK_s)){
+        m_position.y -= m_speed * deltaTime;
     }
-    if(_inputManager->isKeyDown(SDLK_a)){
-        _position.x -= _speed;
+    if(m_inputManager->isKeyDown(SDLK_a)){
+        m_position.x -= m_speed * deltaTime;
     }
-    if(_inputManager->isKeyDown(SDLK_d)){
-        _position.x += _speed;
+    if(m_inputManager->isKeyDown(SDLK_d)){
+        m_position.x += m_speed * deltaTime;
     }
 
     //Swap weapons
-    if( ( _inputManager->isKeyDown(SDLK_1) ) && ( _guns.size() >= 0 ) ){
-        _currentGun = 0;
+    if( ( m_inputManager->isKeyDown(SDLK_1) ) && ( m_guns.size() >= 0 ) ){
+        m_currentGun = 0;
     }
-    if( ( _inputManager->isKeyDown(SDLK_2) ) && ( _guns.size() >= 1 ) ){
-        _currentGun = 1;
+    if( ( m_inputManager->isKeyDown(SDLK_2) ) && ( m_guns.size() >= 1 ) ){
+        m_currentGun = 1;
     }
-    if( ( _inputManager->isKeyDown(SDLK_3) ) && ( _guns.size() >= 2 ) ){
-        _currentGun = 2;
+    if( ( m_inputManager->isKeyDown(SDLK_3) ) && ( m_guns.size() >= 2 ) ){
+        m_currentGun = 2;
     }
 
-    //Shoot
-    if(_currentGun != -1){
+    ///Get player direction
+    glm::vec2 mousePos = m_camera->convertScreenToWorld(m_inputManager->getMouseCoords());
+    glm::vec2 centerPlayerPosition = m_position + AGENT_RADIUS;
+    m_direction = glm::normalize(mousePos - centerPlayerPosition);
 
-        glm::vec2 mousePos = _camera->convertScreenToWorld(_inputManager->getMouseCoords());
-        glm::vec2 centerPlayerPosition = _position + AGENT_RADIUS;
-        glm::vec2 direction = glm::normalize(mousePos - centerPlayerPosition);
+    ///Shoot
+    if(m_currentGun != -1){
 
-        _guns[_currentGun]->update(_inputManager->isKeyDown(SDL_BUTTON_LEFT),
+        m_guns[m_currentGun]->update(m_inputManager->isKeyDown(SDL_BUTTON_LEFT),
                                    centerPlayerPosition,
-                                   direction,
-                                   *_bullets);
+                                   m_direction,
+                                   *m_bullets,
+                                   deltaTime);
     }
 
 
 
     collideWithLevel(levelData);
 
+}
+
+bool Player::receiveInfection(int infectVal){
+
+    m_infectionResistance -= infectVal;
+
+    m_color.r -= infectVal * 255 / HUMAN_INFECT_RESIST;
+    m_color.g -= infectVal * 75 / HUMAN_INFECT_RESIST;
+    m_color.b -= infectVal * 255 / HUMAN_INFECT_RESIST;
+    //m_color.b -= infectVal * 185 / HUMAN_INFECT_RESIST;
+
+    if(m_infectionResistance <= 0) return true;
+
+    return false;
 }

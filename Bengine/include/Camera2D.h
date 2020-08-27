@@ -21,6 +21,8 @@ class Camera2D
 
         glm::vec2 convertScreenToWorld(glm::vec2 screenCoords);
 
+        bool isBoxInView(const glm::vec2& position, const glm::vec2& dimensions); /// < Checks if box is in camera view.
+
         //Setters
         void setPosition(const glm::vec2& newPosition){_position = newPosition; _needsMatrixUpdate = true;}
         void setScale(float newScale){_scale = newScale; _needsMatrixUpdate = true;}
@@ -35,7 +37,7 @@ class Camera2D
         int _screenWidth, _screenHeight;
         bool _needsMatrixUpdate;
         float _scale;
-        glm::vec2 _position;
+        glm::vec2 _position; //Centered
         glm::mat4 _cameraMatrix;
         glm::mat4 _orthoMatrix;
 };

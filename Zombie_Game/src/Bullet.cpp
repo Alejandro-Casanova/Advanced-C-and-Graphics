@@ -23,8 +23,8 @@ Bullet::~Bullet()
     //dtor
 }
 
-bool Bullet::update(const std::vector<std::string>& levelData){
-    _position += _direction * _speed;
+bool Bullet::update(const std::vector<std::string>& levelData, float deltaTime){
+    _position += _direction * _speed * deltaTime;
 //    if(--_lifeTime == 0){
 //        return true;
 //    }

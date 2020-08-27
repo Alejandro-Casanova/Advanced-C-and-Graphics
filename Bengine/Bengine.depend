@@ -372,9 +372,9 @@
 	"begin_code.h"
 	"close_code.h"
 
-1598206880 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\glslprogram.cpp
+1598384542 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\glslprogram.cpp
 	"GLSLProgram.h"
-	"Errors.h"
+	"BengineErrors.h"
 	<fstream>
 	<vector>
 
@@ -391,11 +391,11 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1597619071 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\imageloader.cpp
+1598384542 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\imageloader.cpp
 	"ImageLoader.h"
 	"picoPNG.h"
 	"IOManager.h"
-	"Errors.h"
+	"BengineErrors.h"
 	<vector>
 
 1597619071 c:\users\aleca\desktop\c++\sdl_test\bengine\include\imageloader.h
@@ -806,9 +806,9 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1598207606 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\window.cpp
+1598384542 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\window.cpp
 	"Window.h"
-	"Errors.h"
+	"BengineErrors.h"
 
 1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\window.h
 	<SDL2/SDL.h>
@@ -819,10 +819,10 @@
 	<SDL2/SDL.h>
 	<GLEW/glew.h>
 
-1598212560 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\camera2d.cpp
+1598374803 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\camera2d.cpp
 	"Camera2D.h"
 
-1597854307 c:\users\aleca\desktop\c++\sdl_test\bengine\include\camera2d.h
+1598282807 c:\users\aleca\desktop\c++\sdl_test\bengine\include\camera2d.h
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
@@ -1535,20 +1535,20 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1598216322 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritebatch.cpp
+1598274276 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	<algorithm>
 
-1598216322 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritebatch.h
+1598543303 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritebatch.h
 	<vector>
 	<GLEW/glew.h>
 	<glm/glm.hpp>
 	"Vertex.h"
 
-1597853647 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\inputmanager.cpp
+1598218087 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\inputmanager.cpp
 	"InputManager.h"
 
-1597853647 c:\users\aleca\desktop\c++\sdl_test\bengine\include\inputmanager.h
+1598218087 c:\users\aleca\desktop\c++\sdl_test\bengine\include\inputmanager.h
 	<unordered_map>
 	<glm/glm.hpp>
 
@@ -1557,4 +1557,67 @@
 	<SDL2/SDL.h>
 
 1597704472 c:\users\aleca\desktop\c++\sdl_test\bengine\include\timing.h
+
+1598284490 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritefont.cpp
+	"SpriteFont.h"
+	"SpriteBatch.h"
+	<SDL2/SDL.h>
+
+1598285079 c:\users\aleca\desktop\c++\sdl_test\bengine\include\spritefont.h
+	<SDL2/SDL_ttf.h>
+	<glm/glm.hpp>
+	<map>
+	<vector>
+	"Vertex.h"
+
+1547325890 c:\users\aleca\desktop\c++\sdl_test\deps\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1598384542 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\bengineerrors.cpp
+	"BengineErrors.h"
+	<iostream>
+	<SDL2/SDL.h>
+	<cstdlib>
+
+1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\bengineerrors.h
+	<string>
+
+1598393162 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\audioengine.cpp
+	"AudioEngine.h"
+	"BengineErrors.h"
+	<iostream>
+
+1598392088 c:\users\aleca\desktop\c++\sdl_test\bengine\include\audioengine.h
+	<SDL2/SDL_mixer.h>
+	<string>
+	<map>
+
+1541001618 c:\users\aleca\desktop\c++\sdl_test\deps\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1598485015 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\particleengine2d.cpp
+	"ParticleEngine2D.h"
+	"ParticleBatch2D.h"
+	"SpriteBatch.h"
+
+1598466698 c:\users\aleca\desktop\c++\sdl_test\bengine\include\particleengine2d.h
+	<vector>
+
+1598488173 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\particlebatch2d.cpp
+	"ParticleBatch2D.h"
+
+1598488187 c:\users\aleca\desktop\c++\sdl_test\bengine\include\particlebatch2d.h
+	<glm/glm.hpp>
+	"Vertex.h"
+	"SpriteBatch.h"
+	"GLTexture.h"
+	<functional>
 

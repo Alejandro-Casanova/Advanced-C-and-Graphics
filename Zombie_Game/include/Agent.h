@@ -23,15 +23,19 @@ class Agent
 
         virtual void update(const std::vector<std::string>& levelData,
                             std::vector<Human*>& humans,
-                            std::vector<Zombie*>& zombies) = 0;
+                            std::vector<Zombie*>& zombies,
+                            float deltaTime) = 0;
+
         bool collideWithLevel(const std::vector<std::string>& levelData);
         bool collideWithAgent(Agent* agent);
 
         void draw(Bengine::SpriteBatch& spriteBatch);
 
-        bool receiveDamage(int damageVal); //Return true if death
+        virtual bool receiveDamage(int damageVal); //Return true if death
 
-        glm::vec2 getPosition() const{ return _position; }
+        glm::vec2 getPosition() const{ return m_position; }
+        glm::vec2 getDirection() const{ return m_direction; }
+
 
     protected:
         void checkTilePosition(const std::vector<std::string>& levelData,
@@ -41,10 +45,13 @@ class Agent
         void sortTiles(std::vector<glm::vec2>& collideTilePositions);
         void collideWithTile(glm::vec2 tilePos);
 
-        glm::vec2 _position;
-        float _speed;
-        Bengine::ColorRGBA8 _color;
-        float _health;
+        glm::vec2 m_position;
+        glm::vec2 m_direction = glm::vec2(1.0f, 0.0f);
+        float m_speed;
+        Bengine::ColorRGBA8 m_color;
+        float m_health;
+        GLuint m_textureID;
+
 
 };
 

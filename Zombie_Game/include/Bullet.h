@@ -18,13 +18,15 @@ class Bullet
         Bullet(glm::vec2 pos, glm::vec2 dir, float speed, /*int lifeTime, */int damage);
         virtual ~Bullet();
 
-        bool update(const std::vector<std::string>& levelData); //Returns true when lifetime is over
+        bool update(const std::vector<std::string>& levelData, float deltaTime); //Returns true when lifetime is over
         void draw(Bengine::SpriteBatch& spriteBatch) const;
         bool collideWithWorld(const std::vector<std::string>& levelData) const;
         bool collideWithAgent(const Agent* agent) const;
 
         //Getters
         int getDamage() const { return _damage; }
+        glm::vec2 getPosition() const { return _position; }
+        glm::vec2 getDirection() const { return _direction; }
 
 
     protected:

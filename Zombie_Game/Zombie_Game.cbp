@@ -25,9 +25,11 @@
 					<Add option="-lSDL2" />
 					<Add option="-lopengl32" />
 					<Add option="-lglew32" />
+					<Add option="-lSDL2_ttf" />
 					<Add directory="../deps/lib/GLEW" />
 					<Add directory="../deps/lib/SDL2" />
 					<Add directory="../Bengine/bin/Debug" />
+					<Add directory="../deps/lib/TTF" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -49,16 +51,37 @@
 					<Add option="-lSDL2" />
 					<Add option="-lopengl32" />
 					<Add option="-lglew32" />
+					<Add option="-lSDL2_ttf" />
 					<Add directory="../deps/lib/GLEW" />
 					<Add directory="../deps/lib/SDL2" />
 					<Add directory="../Bengine/bin/Release" />
+					<Add directory="../deps/lib/TTF" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="../deps/include" />
+			<Add directory="include" />
+			<Add directory="../../SDL_Test" />
 		</Compiler>
+		<Linker>
+			<Add option="-lBengine" />
+			<Add option="-lmingw32" />
+			<Add option="-lSDL2main" />
+			<Add option="-lSDL2" />
+			<Add option="-lopengl32" />
+			<Add option="-lglew32" />
+			<Add option="-lSDL2_ttf" />
+			<Add option="-lSDL2_mixer" />
+			<Add directory="../deps/lib/GLEW" />
+			<Add directory="../deps/lib/SDL2" />
+			<Add directory="../Bengine/bin/Debug" />
+			<Add directory="../deps/lib/TTF" />
+			<Add directory="../Bengine/bin/Release" />
+			<Add directory="../deps/lib/SDL2_mixer" />
+		</Linker>
 		<Unit filename="include/Agent.h" />
 		<Unit filename="include/Bullet.h" />
 		<Unit filename="include/Gun.h" />

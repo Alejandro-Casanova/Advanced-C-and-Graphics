@@ -55,4 +55,26 @@ glm::vec2 Camera2D::convertScreenToWorld(glm::vec2 screenCoords){
     return screenCoords;
 }
 
+bool Camera2D::isBoxInView(const glm::vec2& position, const glm::vec2& dimensions){
+
+    glm::vec2 scaledScreenDimensions = glm::vec2(_screenWidth, _screenHeight) / (_scale);
+
+    const float MIN_DISTANCE_X = dimensions.x / 2.0f + scaledScreenDimensions.x / 2.0f;
+    const float MIN_DISTANCE_Y = dimensions.y / 2.0f + scaledScreenDimensions.y / 2.0f;
+
+    glm::vec2 centerPlayerPos = position + dimensions / 2.0f;
+    glm::vec2 distVec = centerPlayerPos - _position; //Camera position is centered
+
+    float xDepth = MIN_DISTANCE_X - abs(distVec.x);
+    float yDepth = MIN_DISTANCE_Y - abs(distVec.y);
+
+    //Check for collition
+    if(xDepth > 0.0f && yDepth > 0.0f){
+        return true;
+    }
+
+    return false;
+
+}
+
 }

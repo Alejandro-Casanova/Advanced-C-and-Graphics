@@ -26,16 +26,23 @@ class Player : public Human
 
         void update(const std::vector<std::string>& levelData,
                             std::vector<Human*>& humans,
-                            std::vector<Zombie*>& zombies) override;
+                            std::vector<Zombie*>& zombies,
+                            float deltaTime) override;
+
+        bool receiveInfection(int infectVal) override;
+
+        //const Gun* getGun(int index) const{return _guns[index];}
+        const std::vector<Gun*>& getGuns() const {return m_guns;}
+        const int getCurrentGun() const {return m_currentGun;}
 
     protected:
 
     private:
-        Bengine::InputManager* _inputManager;
-        std::vector<Gun*> _guns;
-        int _currentGun;
-        Bengine::Camera2D* _camera;
-        std::vector<Bullet>* _bullets;
+        Bengine::InputManager* m_inputManager;
+        std::vector<Gun*> m_guns;
+        int m_currentGun;
+        Bengine::Camera2D* m_camera;
+        std::vector<Bullet>* m_bullets;
 };
 
 #endif // PLAYER_H

@@ -20,8 +20,12 @@
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add option="-lmingw32 -lSDL2main -lSDL2" />
-					<Add option="-lglew32 -lopengl32" />
+					<Add option="-lmingw32" />
+					<Add option="-lSDL2main" />
+					<Add option="-lSDL2" />
+					<Add option="-lglew32" />
+					<Add option="-lopengl32" />
+					<Add option="-lSDL2_ttf" />
 					<Add directory="../deps/lib/GLEW" />
 					<Add directory="../deps/lib/SDL2" />
 				</Linker>
@@ -51,33 +55,42 @@
 		<Compiler>
 			<Add directory="include" />
 			<Add directory="deps/include" />
+			<Add directory="../deps/include" />
 		</Compiler>
+		<Unit filename="include/AudioEngine.h" />
 		<Unit filename="include/Bengine.h" />
+		<Unit filename="include/BengineErrors.h" />
 		<Unit filename="include/Camera2D.h" />
-		<Unit filename="include/Errors.h" />
 		<Unit filename="include/GLSLProgram.h" />
 		<Unit filename="include/GLTexture.h" />
 		<Unit filename="include/IOManager.h" />
 		<Unit filename="include/ImageLoader.h" />
 		<Unit filename="include/InputManager.h" />
+		<Unit filename="include/ParticleBatch2D.h" />
+		<Unit filename="include/ParticleEngine2D.h" />
 		<Unit filename="include/ResourceManager.h" />
 		<Unit filename="include/Sprite.h" />
 		<Unit filename="include/SpriteBatch.h" />
+		<Unit filename="include/SpriteFont.h" />
 		<Unit filename="include/TextureCache.h" />
 		<Unit filename="include/Timing.h" />
 		<Unit filename="include/Vertex.h" />
 		<Unit filename="include/Window.h" />
 		<Unit filename="include/picoPNG.h" />
+		<Unit filename="src/AudioEngine.cpp" />
 		<Unit filename="src/Bengine.cpp" />
+		<Unit filename="src/BengineErrors.cpp" />
 		<Unit filename="src/Camera2D.cpp" />
-		<Unit filename="src/Errors.cpp" />
 		<Unit filename="src/GLSLProgram.cpp" />
 		<Unit filename="src/IOManager.cpp" />
 		<Unit filename="src/ImageLoader.cpp" />
 		<Unit filename="src/InputManager.cpp" />
+		<Unit filename="src/ParticleBatch2D.cpp" />
+		<Unit filename="src/ParticleEngine2D.cpp" />
 		<Unit filename="src/ResourceManager.cpp" />
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/SpriteBatch.cpp" />
+		<Unit filename="src/SpriteFont.cpp" />
 		<Unit filename="src/TextureCache.cpp" />
 		<Unit filename="src/Timing.cpp" />
 		<Unit filename="src/Window.cpp" />
