@@ -145,10 +145,10 @@ void MainGame::gameLoop(){
     Bengine::FpsLimiter fpsLimiter;
     fpsLimiter.setMaxFPS(m_maxFps);
 
-    const float DESIREDm_fps = 60.0f;
+    const float DESIRED_fps = 60.0f;
     const int MAX_PHYSICS_STEPS = 6; //Max steps simulated in one frame. Prevents "spiral of death", where too many steps prevent the program from rendering
     const float MS_PER_SECOND = 1000.0f;
-    const float DESIRED_FRAME_TIME = MS_PER_SECOND / DESIREDm_fps;
+    const float DESIRED_FRAME_TIME = MS_PER_SECOND / DESIRED_fps;
     const float MAX_DELTA_TIME = 1.0f;
 
     float prevTicks = SDL_GetTicks();
@@ -156,8 +156,8 @@ void MainGame::gameLoop(){
     while(m_gameState == GameState::PLAY){
         fpsLimiter.begin();
 
-        float newTicks = SDL_GetTicks();
-        float frameTime = newTicks - prevTicks;
+        Uint32 newTicks = SDL_GetTicks();
+        Uint32 frameTime = newTicks - prevTicks;
         prevTicks = newTicks;
         float totalDeltaTime = frameTime / DESIRED_FRAME_TIME;
 
@@ -189,7 +189,7 @@ void MainGame::gameLoop(){
         drawGame();
 
         m_fps = fpsLimiter.end();
-        //std::cout << m_fps << std::endl;
+        std::cout << m_fps << std::endl;
 
     }
 }
@@ -216,13 +216,13 @@ void MainGame::updateAgents(float deltaTime){
     }
 
     //Update Zombie Collisions
-    for(int i = 0; i < m_zombies.size(); i++){
+    for(size_t i = 0; i < m_zombies.size(); i++){
         //Collide with zombies
-        for(int j = i + 1; j < m_zombies.size(); j++){
+        for(size_t j = i + 1; j < m_zombies.size(); j++){
             m_zombies[i]->collideWithAgent(m_zombies[j]);
         }
         //Collide with Humans
-        for(int j = 1; j < m_humans.size(); j++){
+        for(size_t j = 1; j < m_humans.size(); j++){
             if(m_zombies[i]->collideWithAgent(m_humans[j])){
 
                 if(m_humans[j]->receiveInfection(5)){

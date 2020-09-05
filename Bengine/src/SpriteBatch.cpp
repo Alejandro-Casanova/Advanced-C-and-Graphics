@@ -96,7 +96,7 @@ void SpriteBatch::begin(GlyphSortType sortType /*= GlyphSortType::TEXTURE*/){
 void SpriteBatch::end(){
 
     _glyphPointers.resize(_glyphs.size());
-    for(int i = 0; i < _glyphPointers.size(); i++){
+    for(size_t i = 0; i < _glyphPointers.size(); i++){
         _glyphPointers[i] = &_glyphs[i];
     }
 
@@ -161,7 +161,7 @@ void SpriteBatch::createRenderBatches(){
     vertices[cv++] = _glyphPointers[0]->topLeft;
     offset += 6;
 
-    for(int cg = 1; cg < _glyphPointers.size(); cg++){
+    for(size_t cg = 1; cg < _glyphPointers.size(); cg++){
         if(_glyphPointers[cg]->texture != _glyphPointers[cg - 1]->texture){
             _renderBatches.emplace_back(offset, 6, _glyphPointers[cg]->texture);
         }else{

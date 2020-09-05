@@ -3,6 +3,7 @@
 #include <glm/gtx/rotate_vector.hpp>
 #include <glm/gtx/vector_angle.hpp>
 #include <Bengine/include/ResourceManager.h>
+#include <iostream>
 
 Human::Human() {}
 
@@ -40,22 +41,30 @@ void Human::update(const std::vector<std::string>& levelData,
     static std::mt19937 eng{std::random_device{}()}; //Create random engine object
     //static std::uniform_real_distribution<float> roamDist(glm::radians(-1.0f), glm::radians(1.0f));
     static std::uniform_real_distribution<float> roamDist(glm::radians(-135.0f), glm::radians(135.0f)); //Create uniform real distribution object
-    static std::uniform_real_distribution<float> collideDist(glm::radians(135.0f), glm::radians(270.0f));
+    //static std::uniform_int_distribution<int> collideDist(0, 1);
+    static std::bernoulli_distribution collideDist(0.5);
 
     static int frames = 0;
-
-
 
     ///If collide with wall, change direction
     if(collideWithLevel(levelData)){
 
-        float wallAngle = collideDist(eng);
-        ///Ensure shortest turn away from wall
-        if(wallAngle > glm::radians(180.0f)){
-            wallAngle -= (2 * M_PI);
-        }
-        m_directionObjective = glm::rotate(m_direction, wallAngle);
+        if(m_wallCount == 0){
+            m_wallCount = 50;
+//            float wallAngle = collideDist(eng);
+//            ///Ensure shortest turn away from wall
+//            if(wallAngle > glm::radians(180.0f)){
+//                wallAngle -= (2 * M_PI);
+//            }
+            float angl = M_PI * 0.8;
 
+            if(collideDist(eng)){
+                angl = -angl;
+            }
+            //std::cout << angl << std::endl;
+            m_directionObjective = glm::rotate(m_direction, angl);
+
+        }
     }
     ///Randomly change direction
     else if(frames++ == 150){
@@ -70,15 +79,18 @@ void Human::update(const std::vector<std::string>& levelData,
 //    if(angle > HUMAN_TURN_SPEED) angle = HUMAN_TURN_SPEED;
 //    if(angle < -HUMAN_TURN_SPEED) angle = -HUMAN_TURN_SPEED;
 
+    if(m_wallCount > 0) m_wallCount--; ///< Decrement counter until it reaches 0
+
     m_direction = glm::rotate(m_direction, angle / 20.0f * deltaTime);
 
     m_position += m_direction * m_speed * deltaTime;
 }
 
-template<class T>
-int sign(T val){
-    return ( ( T(0) < val ) - ( val < T(0) ) );
-}
+
+
+//template<class T> int sign(T val){
+//    return ( ( T(0) < val ) - ( val < T(0) ) );
+//}
 
 bool Human::receiveInfection(int infectVal){
     m_infectionResistance -= infectVal;

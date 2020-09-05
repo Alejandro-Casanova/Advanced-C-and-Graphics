@@ -26,8 +26,10 @@
 					<Add option="-lglew32" />
 					<Add option="-lopengl32" />
 					<Add option="-lSDL2_ttf" />
+					<Add option="-lbox2d" />
 					<Add directory="../deps/lib/GLEW" />
 					<Add directory="../deps/lib/SDL2" />
+					<Add directory="../deps/lib/box2d" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -45,10 +47,16 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add option="-lmingw32 -lSDL2main -lSDL2" />
-					<Add option="-lglew32 -lopengl32" />
+					<Add option="-lmingw32" />
+					<Add option="-lSDL2main" />
+					<Add option="-lSDL2" />
+					<Add option="-lglew32" />
+					<Add option="-lopengl32" />
+					<Add option="-lSDL2_ttf" />
+					<Add option="-lbox2d" />
 					<Add directory="../deps/lib/GLEW" />
 					<Add directory="../deps/lib/SDL2" />
+					<Add directory="../deps/lib/box2d" />
 				</Linker>
 			</Target>
 		</Build>
@@ -57,22 +65,39 @@
 			<Add directory="deps/include" />
 			<Add directory="../deps/include" />
 		</Compiler>
+		<Linker>
+			<Add option="-lmingw32" />
+			<Add option="-lSDL2main" />
+			<Add option="-lSDL2" />
+			<Add option="-lglew32" />
+			<Add option="-lopengl32" />
+			<Add option="-lSDL2_ttf" />
+			<Add option="-lbox2d" />
+			<Add directory="../deps/lib/box2d" />
+			<Add directory="../deps/lib/GLEW" />
+			<Add directory="../deps/lib/SDL2" />
+		</Linker>
 		<Unit filename="include/AudioEngine.h" />
 		<Unit filename="include/Bengine.h" />
 		<Unit filename="include/BengineErrors.h" />
 		<Unit filename="include/Camera2D.h" />
+		<Unit filename="include/DebugRenderer.h" />
 		<Unit filename="include/GLSLProgram.h" />
 		<Unit filename="include/GLTexture.h" />
+		<Unit filename="include/IGameScreen.h" />
+		<Unit filename="include/IMainGame.h" />
 		<Unit filename="include/IOManager.h" />
 		<Unit filename="include/ImageLoader.h" />
 		<Unit filename="include/InputManager.h" />
 		<Unit filename="include/ParticleBatch2D.h" />
 		<Unit filename="include/ParticleEngine2D.h" />
 		<Unit filename="include/ResourceManager.h" />
+		<Unit filename="include/ScreenList.h" />
 		<Unit filename="include/Sprite.h" />
 		<Unit filename="include/SpriteBatch.h" />
 		<Unit filename="include/SpriteFont.h" />
 		<Unit filename="include/TextureCache.h" />
+		<Unit filename="include/TileSheet.h" />
 		<Unit filename="include/Timing.h" />
 		<Unit filename="include/Vertex.h" />
 		<Unit filename="include/Window.h" />
@@ -81,13 +106,16 @@
 		<Unit filename="src/Bengine.cpp" />
 		<Unit filename="src/BengineErrors.cpp" />
 		<Unit filename="src/Camera2D.cpp" />
+		<Unit filename="src/DebugRenderer.cpp" />
 		<Unit filename="src/GLSLProgram.cpp" />
+		<Unit filename="src/IMainGame.cpp" />
 		<Unit filename="src/IOManager.cpp" />
 		<Unit filename="src/ImageLoader.cpp" />
 		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/ParticleBatch2D.cpp" />
 		<Unit filename="src/ParticleEngine2D.cpp" />
 		<Unit filename="src/ResourceManager.cpp" />
+		<Unit filename="src/ScreenList.cpp" />
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/SpriteBatch.cpp" />
 		<Unit filename="src/SpriteFont.cpp" />

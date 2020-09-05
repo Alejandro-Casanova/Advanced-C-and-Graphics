@@ -4,32 +4,36 @@
 #include <string>
 #include <GLEW/glew.h>
 namespace Bengine{
-    class GLSLProgram
-    {
-        public:
-            GLSLProgram();
-            virtual ~GLSLProgram();
+class GLSLProgram
+{
+    public:
+        GLSLProgram();
+        virtual ~GLSLProgram();
 
-            void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilePath);
+        void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilePath);
+        void compileShadersFromSource(const char* vertexSource, const char* fragmentSource);
 
-            void linkShaders();
+        void linkShaders();
 
-            void addAttribute(const std::string& attributeName);
+        void addAttribute(const std::string& attributeName);
 
-            GLint getUniformLocation(const std::string& uniformName);
+        GLint getUniformLocation(const std::string& uniformName);
 
-            void use();
-            void unuse();
+        void use();
+        void unuse();
 
-        private:
-            int _numAttributes;
+        void dispose();
 
-            void compileShader(const std::string& filePath, GLuint id);
+    private:
+        int m_numAttributes;
 
-            GLuint _programID;
-            GLuint _vertexShaderID;
-            GLuint _fragmentShaderID;
-    };
+        void compileShader(const char* source, const std::string& name, GLuint id);
+
+        GLuint m_programID;
+        GLuint m_vertexShaderID;
+        GLuint m_fragmentShaderID;
+};
+
 }
 
 #endif // GLSLPROGRAM_H

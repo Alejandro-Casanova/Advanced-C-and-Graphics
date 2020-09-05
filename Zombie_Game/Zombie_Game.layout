@@ -2,64 +2,55 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="include\Bullet.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Player.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="38" topLine="22" />
+			<Cursor1 position="1050" topLine="28" />
 		</Cursor>
 	</File>
-	<File name="src\Gun.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\MainGame.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="270" topLine="0" />
+			<Cursor1 position="6096" topLine="53" />
+		</Cursor>
+		<Folding>
+			<Collapse line="19" />
+			<Collapse line="40" />
+			<Collapse line="55" />
+			<Collapse line="133" />
+			<Collapse line="142" />
+			<Collapse line="279" />
+			<Collapse line="345" />
+			<Collapse line="373" />
+			<Collapse line="392" />
+			<Collapse line="460" />
+			<Collapse line="514" />
+		</Folding>
+	</File>
+	<File name="src\Level.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="110" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="94" />
+		</Folding>
+	</File>
+	<File name="include\MainGame.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1510" topLine="48" />
 		</Cursor>
 	</File>
-	<File name="include\MainGame.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Zombie.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="724" topLine="18" />
+			<Cursor1 position="2187" topLine="57" />
 		</Cursor>
 	</File>
-	<File name="src\Zombie.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Human.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="266" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="include\Gun.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="220" topLine="8" />
+			<Cursor1 position="985" topLine="22" />
 		</Cursor>
 	</File>
 	<File name="src\Bullet.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1354" topLine="43" />
-		</Cursor>
-	</File>
-	<File name="src\Level.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2406" topLine="54" />
-		</Cursor>
-	</File>
-	<File name="src\Agent.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2198" topLine="76" />
-		</Cursor>
-	</File>
-	<File name="src\Human.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="518" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="include\Level.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="150" topLine="20" />
-		</Cursor>
-	</File>
-	<File name="include\Player.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="500" topLine="21" />
-		</Cursor>
-	</File>
-	<File name="src\MainGame.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3387" topLine="270" />
+			<Cursor1 position="2148" topLine="20" />
 		</Cursor>
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -67,14 +58,52 @@
 			<Cursor1 position="92" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="include\Agent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Zombie.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1437" topLine="32" />
+			<Cursor1 position="591" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Player.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Level.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2200" topLine="71" />
+			<Cursor1 position="150" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="src\Agent.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2902" topLine="88" />
+		</Cursor>
+		<Folding>
+			<Collapse line="108" />
+		</Folding>
+	</File>
+	<File name="src\Gun.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1253" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="include\Agent.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="848" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="src\Player.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2884" topLine="89" />
+		</Cursor>
+	</File>
+	<File name="src\Human.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2651" topLine="67" />
+		</Cursor>
+	</File>
+	<File name="include\Gun.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="630" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="include\Bullet.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="800" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -4,9 +4,7 @@
 
 namespace Bengine{
 
-FpsLimiter::FpsLimiter() : _fps(0.0f), _maxFps(0.0f), _frameTime(0.0f), _startTicks(0)
-{
-}
+FpsLimiter::FpsLimiter(){}
 
 void FpsLimiter::init(float maxFPS){
     setMaxFPS(maxFPS);
@@ -24,25 +22,30 @@ float FpsLimiter::end(){
 
     calculateFps();
 
-    float frameTicks = SDL_GetTicks() - _startTicks;
+    float frameTicks = (float)(SDL_GetTicks() - _startTicks);
         //Limits the FPS to the max FPS
         if(1000.0f / _maxFps > frameTicks){
-            SDL_Delay(1000.0f / _maxFps - frameTicks);
+            SDL_Delay((Uint32)(1000.0f / _maxFps - frameTicks));
         }
+    //float debug = SDL_GetTicks();
     return _fps;
 }
 
 void FpsLimiter::calculateFps(){
-
+    ///The number of frames on average
     static const int NUM_SAMPLES = 10;
+    ///Stores all the frametimes for each frame that we will average
     static float frameTimes[NUM_SAMPLES];
+
     static int currentFrame = 0;
 
-    static float prevTicks = SDL_GetTicks();
+    static Uint32 prevTicks = SDL_GetTicks();
 
-    float currentTicks = SDL_GetTicks();
+    ///Ticks for the current frame
+    Uint32 currentTicks = SDL_GetTicks();
 
-    _frameTime = currentTicks - prevTicks;
+    //Calculate the number of ticks (ms) for this frame
+    _frameTime = (float)(currentTicks - prevTicks);
     frameTimes[currentFrame % NUM_SAMPLES] = _frameTime;
 
     prevTicks = currentTicks;
@@ -56,6 +59,7 @@ void FpsLimiter::calculateFps(){
         count = NUM_SAMPLES;
     }
 
+    ///Average all the frame times
     float frameTimeAverage = 0;
     for(int i = 0; i < count; i++){
         frameTimeAverage += frameTimes[i];
@@ -65,7 +69,7 @@ void FpsLimiter::calculateFps(){
     if(frameTimeAverage > 0){
         _fps = 1000.0f / frameTimeAverage; // (ms/s)/(ms/frames) = fps
     }else{
-        _fps = 0.0f;
+        _fps = 60.0f;
     }
 
 }

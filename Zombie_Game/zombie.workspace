@@ -3,5 +3,6 @@
 	<Workspace title="Workspace">
 		<Project filename="../Bengine/Bengine.cbp" />
 		<Project filename="Zombie_Game.cbp" />
+		<Project filename="../Ninja_Platformer/Ninja_Platformer.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

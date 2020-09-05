@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
 1597575856 source:c:\users\aleca\desktop\c++\sdl_test\bengine\main.c
 
-1597619071 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\iomanager.cpp
+1599262284 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\iomanager.cpp
 	"IOManager.h"
 	<fstream>
 
-1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\iomanager.h
+1599261477 c:\users\aleca\desktop\c++\sdl_test\bengine\include\iomanager.h
 	<vector>
 	<string>
 
@@ -372,13 +372,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1598384542 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\glslprogram.cpp
+1599309934 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\glslprogram.cpp
 	"GLSLProgram.h"
 	"BengineErrors.h"
 	<fstream>
 	<vector>
+	"IOManager.h"
 
-1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\glslprogram.h
+1599265977 c:\users\aleca\desktop\c++\sdl_test\bengine\include\glslprogram.h
 	<string>
 	<GLEW/glew.h>
 
@@ -806,11 +807,11 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1598384542 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\window.cpp
+1598894284 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\window.cpp
 	"Window.h"
 	"BengineErrors.h"
 
-1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\window.h
+1598894270 c:\users\aleca\desktop\c++\sdl_test\bengine\include\window.h
 	<SDL2/SDL.h>
 	<GLEW/glew.h>
 	<string>
@@ -1535,7 +1536,7 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1598274276 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritebatch.cpp
+1598993127 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	<algorithm>
 
@@ -1552,7 +1553,7 @@
 	<unordered_map>
 	<glm/glm.hpp>
 
-1598207710 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\timing.cpp
+1599312613 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\timing.cpp
 	"Timing.h"
 	<SDL2/SDL.h>
 
@@ -1620,4 +1621,39 @@
 	"SpriteBatch.h"
 	"GLTexture.h"
 	<functional>
+
+1598817594 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\igamescreen.cpp
+	"IGameScreen.h"
+
+1598832860 c:\users\aleca\desktop\c++\sdl_test\bengine\include\igamescreen.h
+
+1599312172 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\imaingame.cpp
+	"IMainGame.h"
+	"Timing.h"
+	"IGameScreen.h"
+
+1598997524 c:\users\aleca\desktop\c++\sdl_test\bengine\include\imaingame.h
+	"Bengine.h"
+	"Window.h"
+	"InputManager.h"
+	"ScreenList.h"
+	<memory>
+
+1597618774 c:\users\aleca\desktop\c++\sdl_test\bengine\include\bengine.h
+
+1598820894 c:\users\aleca\desktop\c++\sdl_test\bengine\include\screenlist.h
+	<vector>
+
+1598830069 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\screenlist.cpp
+	"ScreenList.h"
+	"IGameScreen.h"
+
+1599268597 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\debugrenderer.cpp
+	"DebugRenderer.h"
+
+1599265621 c:\users\aleca\desktop\c++\sdl_test\bengine\include\debugrenderer.h
+	"Vertex.h"
+	<glm/glm.hpp>
+	<vector>
+	"GLSLProgram.h"
 

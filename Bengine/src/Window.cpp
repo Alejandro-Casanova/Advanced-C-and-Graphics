@@ -3,7 +3,7 @@
 
 namespace Bengine{
 
-Window::Window() : _screenWidth(0), _screenHeight(0)
+Window::Window() : m_screenWidth(0), m_screenHeight(0)
 {
     //ctor
 }
@@ -17,6 +17,9 @@ int Window::create(std::string windowName, int screenWidth, int screenHeight, un
 
     Uint32 flags = SDL_WINDOW_OPENGL;
 
+    m_screenWidth = screenWidth;
+    m_screenHeight = screenHeight;
+
     //Check flags
     if(currentFlags & INVISIBLE){
         flags |= SDL_WINDOW_HIDDEN;
@@ -29,13 +32,13 @@ int Window::create(std::string windowName, int screenWidth, int screenHeight, un
     }
 
     //Open an SDL Window
-    _sdlwindow = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screenWidth, screenHeight, flags);
-    if(_sdlwindow == nullptr){
+    m_sdlwindow = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screenWidth, screenHeight, flags);
+    if(m_sdlwindow == nullptr){
         fatalError("SDL window could not be created");
     }
 
     //Set up OpenGL context
-    SDL_GLContext glContext = SDL_GL_CreateContext(_sdlwindow);
+    SDL_GLContext glContext = SDL_GL_CreateContext(m_sdlwindow);
     if(glContext == nullptr){
         fatalError("SDL_GL context could not be created");
     }
@@ -65,7 +68,7 @@ int Window::create(std::string windowName, int screenWidth, int screenHeight, un
 
 void Window::swapBuffer(){
     //Swap our buffer and draw everything to the screen
-    SDL_GL_SwapWindow(_sdlwindow);
+    SDL_GL_SwapWindow(m_sdlwindow);
 }
 
 }

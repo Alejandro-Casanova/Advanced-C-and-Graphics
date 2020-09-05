@@ -9,7 +9,7 @@ const int HUMAN_TURN_SPEED = 0.08f;
 
 class Gun;
 
-template<class T> extern int sign(T val); ///<Returns -1 if negative and +1 if positive
+//template<class T> extern int sign(T val); ///<Returns -1 if negative and +1 if positive
 
 class Human : public Agent
 {
@@ -31,6 +31,7 @@ class Human : public Agent
         glm::vec2 m_directionObjective = glm::vec2(1.0f, 0.0f);
 
     private:
+        int m_wallCount = 0; ///< Used to count frames after wall collision. Prevents humans from getting stuck into walls.
 };
 
 #endif // HUMAN_H
