@@ -1553,11 +1553,11 @@
 	<unordered_map>
 	<glm/glm.hpp>
 
-1599312613 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\timing.cpp
+1599316693 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\timing.cpp
 	"Timing.h"
 	<SDL2/SDL.h>
 
-1597704472 c:\users\aleca\desktop\c++\sdl_test\bengine\include\timing.h
+1599313336 c:\users\aleca\desktop\c++\sdl_test\bengine\include\timing.h
 
 1598284490 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\spritefont.cpp
 	"SpriteFont.h"
@@ -1625,14 +1625,14 @@
 1598817594 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\igamescreen.cpp
 	"IGameScreen.h"
 
-1598832860 c:\users\aleca\desktop\c++\sdl_test\bengine\include\igamescreen.h
+1599349729 c:\users\aleca\desktop\c++\sdl_test\bengine\include\igamescreen.h
 
-1599312172 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\imaingame.cpp
+1599428973 source:c:\users\aleca\desktop\c++\sdl_test\bengine\src\imaingame.cpp
 	"IMainGame.h"
 	"Timing.h"
 	"IGameScreen.h"
 
-1598997524 c:\users\aleca\desktop\c++\sdl_test\bengine\include\imaingame.h
+1599427688 c:\users\aleca\desktop\c++\sdl_test\bengine\include\imaingame.h
 	"Bengine.h"
 	"Window.h"
 	"InputManager.h"

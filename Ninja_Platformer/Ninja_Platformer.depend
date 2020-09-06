@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1599312104 source:c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\src\gameplayscreen.cpp
+1599431282 source:c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\src\gameplayscreen.cpp
 	"GameplayScreen.h"
 	"Light.h"
 	<iostream>
@@ -8,7 +8,7 @@
 	<random>
 	<SDL2/SDL.h>
 
-1599310236 c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\include\gameplayscreen.h
+1599430422 c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\include\gameplayscreen.h
 	<Bengine/include/IGameScreen.h>
 	<Bengine/include/GLSLProgram.h>
 	<Bengine/include/Camera2D.h>
@@ -30,7 +30,7 @@
 	<Bengine/include/IMainGame.h>
 	"GameplayScreen.h"
 
-1598997524 c:\users\aleca\desktop\c++\sdl_test\bengine\include\imaingame.h
+1599427688 c:\users\aleca\desktop\c++\sdl_test\bengine\include\imaingame.h
 	"Bengine.h"
 	"Window.h"
 	"InputManager.h"
@@ -1066,12 +1066,12 @@
 
 1525695782 c:\users\aleca\desktop\c++\sdl_test\deps\include\glm\simd\integer.h
 
-1598896010 source:c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\main.cpp
+1599429215 source:c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\main.cpp
 	<iostream>
 	<Bengine/include/IMainGame.h>
 	"App.h"
 
-1598832860 c:\users\aleca\desktop\c++\sdl_test\bengine\include\igamescreen.h
+1599349729 c:\users\aleca\desktop\c++\sdl_test\bengine\include\igamescreen.h
 
 1598820894 c:\users\aleca\desktop\c++\sdl_test\bengine\include\screenlist.h
 	<vector>
@@ -1320,13 +1320,13 @@
 	<string>
 	"GLTexture.h"
 
-1599309483 c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\include\player.h
+1599430422 c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\include\player.h
 	"Capsule.h"
 	<Bengine/include/SpriteBatch.h>
 	<Bengine/include/TileSheet.h>
 	<Bengine/include/InputManager.h>
 
-1599306871 source:c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\src\player.cpp
+1599431238 source:c:\users\aleca\desktop\c++\sdl_test\ninja_platformer\src\player.cpp
 	"Player.h"
 	<Bengine/include/ResourceManager.h>
 	<SDL2/SDL.h>

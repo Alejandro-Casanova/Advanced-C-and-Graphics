@@ -103,15 +103,21 @@ void GameplayScreen::onExit(){
 }
 
 ///Called in the main game loop
-void GameplayScreen::update(){
+void GameplayScreen::update(float deltaTime){
     m_camera.update();
     checkInput();
-    m_player.update(m_game->inputManager);
+    m_player.update(m_game->inputManager, deltaTime);
 
     ///Update physics simulation
-    m_world->Step(1.0f / 60.0f, 6, 2);
+    m_world->Step(1.0f / 60.0f * deltaTime, 6 * deltaTime, 2 * deltaTime);
+    //m_world->Step(1.0f / 60.0f, 6, 2);
 
-    //std::cout << m_game->getFps() << std::endl;
+    static int i = 0;
+    i++;
+    if(i > 50){
+        i = 0;
+        std::cout << m_game->getFps() << " " << m_game->getTotalDeltaTime() << std::endl;
+    }
 }
 
 void GameplayScreen::draw(){
@@ -138,7 +144,7 @@ void GameplayScreen::draw(){
     }
 
     ///Draw Player
-    m_player.draw(m_spriteBatch);
+    m_player.draw(m_spriteBatch, m_game->getTotalDeltaTime());
 
 //    ///Draw ground
 //    m_spriteBatch.draw(destRect,
@@ -167,43 +173,47 @@ void GameplayScreen::draw(){
         m_debugRenderer.render(projectionMatrix, 2.0f);
     }
 
-    ///Render Lights
-    static Light playerLight;
-    playerLight.color = Bengine::ColorRGBA8(255, 255, 255, 128);
-    playerLight.position = m_player.getPosition();
-    playerLight.size = 30.0f;
+    if(m_player.getIsLightOn()){
+        ///Render Lights
+        static Light playerLight;
+        playerLight.color = Bengine::ColorRGBA8(255, 255, 255, 128);
+        playerLight.position = m_player.getPosition();
+        playerLight.position.y += 0.70f;
+        playerLight.position.x += 0.1f;
+        playerLight.size = 30.0f;
 
-    static Light mouseLight;
-    mouseLight.color = Bengine::ColorRGBA8(255, 0, 255, 150);
-    mouseLight.position = m_camera.convertScreenToWorld(m_game->inputManager.getMouseCoords());
-    mouseLight.size = 45.0f;
+    //    static Light mouseLight;
+    //    mouseLight.color = Bengine::ColorRGBA8(255, 0, 255, 150);
+    //    mouseLight.position = m_camera.convertScreenToWorld(m_game->inputManager.getMouseCoords());
+    //    mouseLight.size = 45.0f;
 
-    m_lightProgram.use();
+        m_lightProgram.use();
 
-    pUniform = m_textureProgram.getUniformLocation("P");
-    glUniformMatrix4fv(pUniform, 1, GL_FALSE, &projectionMatrix[0][0]);
+        pUniform = m_lightProgram.getUniformLocation("P");
+        glUniformMatrix4fv(pUniform, 1, GL_FALSE, &projectionMatrix[0][0]);
 
-    ///Upload mouse coords uniform
-    glm::vec2 mouseCoords = glm::normalize(m_camera.convertScreenToWorld(m_game->inputManager.getMouseCoords()) - m_player.getPosition());
+        ///Upload mouse coords uniform
+        glm::vec2 mouseVec = glm::normalize(m_camera.convertScreenToWorld(m_game->inputManager.getMouseCoords()) - m_player.getPosition());
+        //std::cout << mouseVec.x << " " << mouseVec.y << std::endl;
+        GLuint mouseUniform = m_lightProgram.getUniformLocation("mouseVec");
+        glUniform2f(mouseUniform, mouseVec.x, mouseVec.y);
 
-//    GLuint pUniform = m_textureProgram.getUniformLocation("P");
-//    glUniformMatrix4fv(pUniform, 1, GL_FALSE, &projectionMatrix[0][0]);
+        ///Additive blending
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
-    ///Additive blending
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+        m_spriteBatch.begin();
 
-    m_spriteBatch.begin();
+        playerLight.draw(m_spriteBatch);
+        //mouseLight.draw(m_spriteBatch);
 
-    playerLight.draw(m_spriteBatch);
-    mouseLight.draw(m_spriteBatch);
+        m_spriteBatch.end();
+        m_spriteBatch.renderBatch();
 
-    m_spriteBatch.end();
-    m_spriteBatch.renderBatch();
+        ///Reset to standard blending
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    ///Reset to standard blending
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-    m_lightProgram.unuse();
+        m_lightProgram.unuse();
+    }
 
 }
 

@@ -33,7 +33,7 @@ public:
     virtual void onExit() override;
 
     ///Called in the main game loop
-    virtual void update() override;
+    virtual void update(float deltaTime) override;
     virtual void draw() override;
 
 protected:

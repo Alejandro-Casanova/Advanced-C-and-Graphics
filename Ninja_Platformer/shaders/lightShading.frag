@@ -9,11 +9,15 @@ in vec2 fragmentUV;
 //A 3 component float vector is outputted to the screen for each pixel.
 out vec4 color;
 
+uniform vec2 mouseVec;
 
 void main() {
 	
 	float distance = length(fragmentUV);
+	vec2 normalizedUV = normalize(fragmentUV);
+	float dotResult = dot(mouseVec, normalizedUV);
+	float multiplier = -12 + pow(13, dotResult);
 	
-	color = vec4(fragmentColor.rgb, fragmentColor.a * (pow(0.01, distance) -0.01));
+	color = vec4(fragmentColor.rgb, multiplier * fragmentColor.a * (pow(0.01, distance) -0.01));
 	
 }

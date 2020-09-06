@@ -17,16 +17,42 @@ void IMainGame::run(){
     if(!init()) return;
 
     FpsLimiter limiter;
-    limiter.init(60.0f);
+    limiter.init(m_maxFps);
+
+    ///TimeStep parameters
+    const float DESIRED_fps = 60.0f;
+    const int MAX_PHYSICS_STEPS = 4; //Max steps simulated in one frame. Prevents "spiral of death", where too many steps prevent the program from rendering
+    const float MS_PER_SECOND = 1000.0f;
+    const float DESIRED_FRAME_TIME = MS_PER_SECOND / DESIRED_fps;
+    const float MAX_DELTA_TIME = 1.0f;
+
+    float prevTicks = SDL_GetTicks();
 
     ///Game loop
     m_isRunning = true;
     while(m_isRunning){
         limiter.begin();
 
-        ///Call custom update and draw methods
-        inputManager.update();
-        update();
+        ///Delta Time Calculation
+        Uint32 newTicks = SDL_GetTicks();
+        Uint32 frameTime = newTicks - prevTicks;
+        prevTicks = newTicks;
+        float totalDeltaTime = frameTime / DESIRED_FRAME_TIME;
+        m_totalDeltaTime = totalDeltaTime;
+
+        int i = 0;//Prevents "spiral of death"
+        while( ( totalDeltaTime > 0.0f ) && ( i < MAX_PHYSICS_STEPS ) ){
+            float deltaTime = std::min(MAX_DELTA_TIME, totalDeltaTime);
+
+            ///Call custom update and draw methods
+            inputManager.update();
+
+            update(deltaTime);
+
+            i++;
+            totalDeltaTime -= deltaTime;
+        }
+
         if(m_isRunning){///< Prevents crash
             draw();
             m_window.swapBuffer();
@@ -45,11 +71,11 @@ void IMainGame::exitGame(){
     m_isRunning = false;
 }
 
-void IMainGame::update(){
+void IMainGame::update(float deltaTime){
     if(m_currentScreen){///< Checks m_currentScreen != nullptr
         switch(m_currentScreen->getScreenState()){
         case ScreenState::RUNNING:
-            m_currentScreen->update();
+            m_currentScreen->update(deltaTime);
             break;
         case ScreenState::CHANGE_NEXT:
             m_currentScreen->onEntry();

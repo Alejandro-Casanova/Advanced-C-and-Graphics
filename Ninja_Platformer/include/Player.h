@@ -20,13 +20,14 @@ class Player
                   const glm::vec2& collitionDims,
                   const Bengine::ColorRGBA8& color);
 
-        void draw(Bengine::SpriteBatch& spriteBatch);
+        void draw(Bengine::SpriteBatch& spriteBatch, float deltaTime); ///< Delta time used for animation
         void drawDebug(Bengine::DebugRenderer& debugRenderer);
 
-        void update(Bengine::InputManager& inputManager);
+        void update(Bengine::InputManager& inputManager, float deltaTime);///< Delta time not used here but in m_world->step
 
         const Capsule& getCapsule() const { return m_capsule; }
         glm::vec2 getPosition() const { return glm::vec2(m_capsule.getBody()->GetPosition().x, m_capsule.getBody()->GetPosition().y); }
+        bool getIsLightOn() const { return m_isLightOn; }
 
     protected:
 
@@ -38,6 +39,7 @@ class Player
         PlayerMoveState m_moveState = PlayerMoveState::STANDING;
         int m_direction = 1; ///< 1 or -1
         bool m_onGround = false;
+        bool m_isLightOn = false;
         bool m_isPunching = false;
         float m_animTime = 0.0f; ///< Used for animation
 };

@@ -22,7 +22,7 @@ void Player::init(b2World* world, const glm::vec2& position, const glm::vec2& dr
 
 }
 
-void Player::draw(Bengine::SpriteBatch& spriteBatch){
+void Player::draw(Bengine::SpriteBatch& spriteBatch, float deltaTime){
     glm::vec4 destRect;
     b2Body* body = m_capsule.getBody();
     destRect.x = body->GetPosition().x - m_drawDims.x / 2.0f;
@@ -49,17 +49,16 @@ void Player::draw(Bengine::SpriteBatch& spriteBatch){
                 m_animTime = 0;
             }
 
-
         }else if( (abs(velocity.x) < 1.0f) || ( (velocity.x * m_direction) < 0 ) ){
             ///Standing
             m_moveState = PlayerMoveState::STANDING;
             numTiles = 1;
             tileIndex = 0;
-            animSpeed = abs(velocity.x) * 0.025f;
         }else{
             ///Running
             numTiles = 6;
             tileIndex = 10;
+            animSpeed = abs(velocity.x) * 0.025;
             if(m_moveState != PlayerMoveState::RUNNING){///< Restart running animation
                 m_moveState = PlayerMoveState::RUNNING;
                 m_animTime = 0;
@@ -88,7 +87,7 @@ void Player::draw(Bengine::SpriteBatch& spriteBatch){
     }
 
     ///Increment animation time
-    m_animTime += animSpeed;
+    m_animTime += animSpeed * deltaTime; ///< TOTAL DELTA TIME
 
     ///Check for punch end
     if( (m_moveState == PlayerMoveState::PUNCHING) && (m_animTime > numTiles) ){
@@ -115,7 +114,7 @@ void Player::drawDebug(Bengine::DebugRenderer& debugRenderer){
     m_capsule.drawDebug(debugRenderer);
 }
 
-void Player::update(Bengine::InputManager& inputManager){
+void Player::update(Bengine::InputManager& inputManager, float deltaTime){
     b2Body* body = m_capsule.getBody();
     if(inputManager.isKeyDown(SDLK_a)){
         body->ApplyForceToCenter(b2Vec2(-100.0f, 0.0f), true);
@@ -139,6 +138,7 @@ void Player::update(Bengine::InputManager& inputManager){
         body->SetLinearVelocity(b2Vec2(MAX_SPEED, body->GetLinearVelocity().y));
     }
 
+    ///Jump
     ///Loop through all the player's contact points
     m_onGround = false;
     for(b2ContactEdge* ce = body->GetContactList(); ce != nullptr; ce = ce->next){
@@ -164,5 +164,7 @@ void Player::update(Bengine::InputManager& inputManager){
             }
         }
     }
+    ///Toggle flash-light
+    if(inputManager.isKeyPressed(SDLK_l)) m_isLightOn = !m_isLightOn;
 
 }

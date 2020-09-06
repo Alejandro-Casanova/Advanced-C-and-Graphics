@@ -30,11 +30,13 @@ class IMainGame
         void onSDLEvent(SDL_Event& evnt);
 
         const float getFps() const { return m_fps; }
+        const float getTotalDeltaTime() const { return m_totalDeltaTime; }
+        void setMaxFps(float maxFps) { m_maxFps = maxFps; }
 
         InputManager inputManager;
 
     protected:
-        virtual void update();
+        virtual void update(float deltaTime);
         virtual void draw();
 
         bool init();
@@ -44,6 +46,8 @@ class IMainGame
         IGameScreen* m_currentScreen = nullptr;
         bool m_isRunning = false;
         float m_fps = 0.0f;
+        float m_maxFps = 60.0f;
+        float m_totalDeltaTime = 0.0f;
         Window m_window;
 
         int m_screenWidth = 1024;
